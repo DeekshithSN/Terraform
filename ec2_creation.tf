@@ -1,4 +1,7 @@
 
+provider "aws" {
+	region = "us-east-1"
+}
 
 resource "aws_vpc" "default" {
   cidr_block = "10.0.0.0/16"
@@ -58,7 +61,7 @@ resource "aws_security_group" "sgweb" {
 }
 
 resource "aws_instance" "web" {
-	ami = "ami-18726478"
+	ami = "ami-007a607c4abd192db"
 	instance_type = "t2.micro"
 	subnet_id = "${aws_subnet.public-subnet.id}"
 	vpc_security_group_ids = ["${aws_security_group.sgweb.id}"]
