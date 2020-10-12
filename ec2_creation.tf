@@ -61,7 +61,7 @@ resource "aws_security_group" "sgweb" {
 }
 
 resource "aws_instance" "web" {
-	ami = "ami-007a607c4abd192db"
+	ami = "ami-032930428bf1abbff"
 	instance_type = "t2.micro"
 	subnet_id = "${aws_subnet.public-subnet.id}"
 	vpc_security_group_ids = ["${aws_security_group.sgweb.id}"]
