@@ -18,9 +18,6 @@ resource "aws_subnet" "public-subnet" {
   cidr_block = "10.0.1.0/24"
   availability_zone = "us-west-2a"
 
-  tags {
-    Name = "Web Public Subnet"
-  }
 }
 
 resource "aws_security_group" "sgweb" {
@@ -64,9 +61,6 @@ resource "aws_security_group" "sgweb" {
 
   vpc_id="${aws_vpc.default.id}"
 
-  tags {
-    Name = "Web Server SG"
-  }
 }
 
 resource "aws_instance" "web" {
