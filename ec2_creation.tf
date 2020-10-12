@@ -67,3 +67,13 @@ resource "aws_instance" "web" {
 	vpc_security_group_ids = ["${aws_security_group.sgweb.id}"]
 }
 
+
+resource "aws_s3_bucket" "b" {
+  bucket = "my-tf-test-bucket-fhgfgg"
+  acl    = "private"
+
+  tags = {
+    Name        = "My bucket"
+    Environment = "Dev"
+  }
+}
