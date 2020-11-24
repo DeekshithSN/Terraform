@@ -2,6 +2,14 @@ provider "aws" {
 region = "us-east-1"
 }
 
+terraform {
+  backend "s3" {
+    bucket = "terraform-backend-spovedd"
+    key    = "state-read-terraform.tfstate"
+    region = "us-east-1"
+  }
+}
+
 resource "aws_iam_role_policy" "test_policy" {
   name = "ec2_describe_policy"
   role = aws_iam_role.test_role.id
