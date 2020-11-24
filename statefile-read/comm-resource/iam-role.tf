@@ -3,7 +3,7 @@ region = "us-east-1"
 }
 
 resource "aws_iam_role_policy" "test_policy" {
-  name = "test_policy"
+  name = "ec2_describe_policy"
   role = aws_iam_role.test_role.id
 
   policy = <<-EOF
@@ -40,4 +40,9 @@ resource "aws_iam_role" "test_role" {
     ]
   }
   EOF
+}
+
+
+output "lb_address" {
+  value = "${aws_iam_role.test_role.id}"
 }
