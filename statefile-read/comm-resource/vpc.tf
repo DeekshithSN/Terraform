@@ -6,7 +6,7 @@ region = "us-east-1"
 terraform {
   backend "s3" {
     bucket = "terraform-backend-spovedd"
-    key    = "state-read-terraform.tfstate"
+    key    = "state-comm-terraform.tfstate"
     region = "us-east-1"
   }
 }
