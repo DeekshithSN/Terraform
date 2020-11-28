@@ -13,6 +13,13 @@ resource "aws_instance" "web" {
     Name = "Test-file-provisioner"
   }
   
+  connection {
+    type = "ssh"
+    host = self.public_ip
+    user = "ec2-user"
+    private_key = "aws_iny_lappi.pem"
+    }
+  
   provisioner "file" {
     source      = "index.html"
     destination = "/var/www/html/index.html"
