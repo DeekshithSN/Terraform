@@ -17,7 +17,7 @@ resource "aws_instance" "web" {
     type = "ssh"
     host = self.public_ip
     user = "ec2-user"
-    private_key = "aws_iny_lappi.pem"
+    private_key = file("aws_iny_lappi.pem")
     }
   
   provisioner "file" {
