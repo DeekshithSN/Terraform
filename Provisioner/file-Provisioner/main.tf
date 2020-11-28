@@ -29,7 +29,7 @@ resource "null_resource" "copyhtml" {
     destination = "/var/www/html/index.html"
   }
  
-  depends_on = aws_instance.web
+  depends_on = [ aws_instance.web ]
   
   }
 
