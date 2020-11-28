@@ -13,9 +13,13 @@ resource "aws_instance" "web" {
     Name = "Test-file-provisioner"
   }
   
-  connection {
+}
+
+resource "null_resource" "copyhtml" {
+  
+    connection {
     type = "ssh"
-    host = self.public_ip
+    host = aws_instance.web.public_ip
     user = "ec2-user"
     private_key = file("aws_iny_lappi.pem")
     }
@@ -24,8 +28,10 @@ resource "aws_instance" "web" {
     source      = "index.html"
     destination = "/var/www/html/index.html"
   }
-}
-
+ 
+  dependes_on = aws_instance.web
+  
+  }
 
 resource "aws_security_group" "webSG" {
   name        = "webSG"
