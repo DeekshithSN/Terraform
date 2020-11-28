@@ -7,6 +7,7 @@ resource "aws_instance" "web" {
   ami           = "ami-04bf6dcdc9ab498ca"
   instance_type = "t2.micro"
   key_name      = "aws_iny_lappi"
+  user_data     = "${file("httpd.sh")}"
   vpc_security_group_ids = ["${aws_security_group.webSG.id}"]
   tags = {
     Name = "Test-file-provisioner"
