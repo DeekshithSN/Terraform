@@ -17,7 +17,6 @@ resource "aws_instance" "web" {
 resource "aws_security_group" "webSG" {
   name        = "webSG"
   description = "Allow ssh  inbound traffic"
-  vpc_id      = "vpc-f0525289"
 
   ingress {
     from_port   = 22
