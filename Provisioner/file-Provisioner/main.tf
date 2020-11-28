@@ -12,6 +12,11 @@ resource "aws_instance" "web" {
   tags = {
     Name = "Test-file-provisioner"
   }
+  
+  provisioner "file" {
+    source      = "index.html"
+    destination = "/var/www/html/index.html"
+  }
 }
 
 
