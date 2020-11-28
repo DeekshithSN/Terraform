@@ -26,7 +26,7 @@ resource "null_resource" "copyhtml" {
   
   provisioner "file" {
     source      = "index.html"
-    destination = "/var/www/html/index.html"
+    destination = "/var/index.html"
   }
  
   depends_on = [ aws_instance.web ]
