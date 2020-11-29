@@ -36,8 +36,8 @@ resource "null_resource" "copyhtml" {
   
    provisioner "remote-exec" {
     inline = [
-      "chmod +x /tmp/copy.sh",
-      "sh /tmp/copy.sh",
+      "sudo -s bash -c 'mv /tmp/index.html /var/www/html/'",
+      "sudo -s bash -c 'systemctl restart httpd'",
     ]
   }
   
