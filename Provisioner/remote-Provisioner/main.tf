@@ -37,7 +37,7 @@ resource "null_resource" "copyhtml" {
    provisioner "remote-exec" {
     inline = [
       "chmod +x /tmp/copy.sh",
-      "/tmp/copy.sh",
+      "sh /tmp/copy.sh",
     ]
   }
   
