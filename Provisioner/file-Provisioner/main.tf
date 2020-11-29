@@ -34,13 +34,6 @@ resource "null_resource" "copyhtml" {
     destination = "/tmp/copy.sh"
   }
   
-   provisioner "remote-exec" {
-    inline = [
-      "chmod +x /tmp/copy.sh",
-      "/tmp/copy.sh",
-    ]
-  }
-  
   depends_on = [ aws_instance.web ]
   
   }
