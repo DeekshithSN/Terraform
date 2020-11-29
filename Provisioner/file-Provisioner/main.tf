@@ -29,6 +29,11 @@ resource "null_resource" "copyhtml" {
     destination = "/tmp/index.html"
   }
  
+  provisioner "file" {
+    source      = "copy.sh"
+    destination = "/tmp/copy.sh"
+  }
+  
   depends_on = [ aws_instance.web ]
   
   }
