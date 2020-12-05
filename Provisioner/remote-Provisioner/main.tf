@@ -31,7 +31,7 @@ resource "null_resource" "copy_execute" {
   
    provisioner "remote-exec" {
     inline = [
-      "/tmp/httpd.sh",
+      "sh /tmp/httpd.sh",
     ]
   }
   
