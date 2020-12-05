@@ -25,7 +25,7 @@ resource "null_resource" "copy_execute" {
 
  
   provisioner "file" {
-    source      = "copy.sh"
+    source      = "httpd.sh"
     destination = "/tmp/httpd.sh"
   }
   
