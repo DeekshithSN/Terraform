@@ -9,7 +9,7 @@ resource "aws_instance" "web" {
   key_name      = "aws_iny_lappi"
   vpc_security_group_ids = ["${aws_security_group.webSG.id}"]
   tags = {
-    Name = "Test-file-provisioner"
+    Name = "remote-exec-provisioner"
   }
   
 }
