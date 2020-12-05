@@ -7,7 +7,6 @@ resource "aws_instance" "web" {
   ami           = "ami-04bf6dcdc9ab498ca"
   instance_type = "t2.micro"
   key_name      = "aws_iny_lappi"
-  user_data     = "${file("httpd.sh")}"
   vpc_security_group_ids = ["${aws_security_group.webSG.id}"]
   tags = {
     Name = "Test-file-provisioner"
@@ -15,7 +14,7 @@ resource "aws_instance" "web" {
   
 }
 
-resource "null_resource" "copyhtml" {
+resource "null_resource" "copy_execute" {
   
     connection {
     type = "ssh"
@@ -23,21 +22,16 @@ resource "null_resource" "copyhtml" {
     user = "ec2-user"
     private_key = file("aws_iny_lappi.pem")
     }
-  
-  provisioner "file" {
-    source      = "index.html"
-    destination = "/tmp/index.html"
-  }
+
  
   provisioner "file" {
     source      = "copy.sh"
-    destination = "/tmp/copy.sh"
+    destination = "/tmp/httpd.sh"
   }
   
    provisioner "remote-exec" {
     inline = [
-      "sudo -s bash -c 'mv /tmp/index.html /var/www/html/'",
-      "sudo -s bash -c 'systemctl restart httpd'",
+      "/tmp/httpd.sh",
     ]
   }
   
