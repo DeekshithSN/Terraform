@@ -15,7 +15,7 @@ To run these templates, clone the repository and run `terraform apply` within it
 For example:
 
 ```tf
-$ git clone https://github.com/collabnix/terraform.git
-$ cd terraform/beginner/aws/modules/application_load_balancer
+$ git clone https://github.com/DeekshithSN/Terraform-1.git
+$ cd Terraform-1/beginner/application_load_balancer
 $ terraform apply
 ```
