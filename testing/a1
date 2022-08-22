@@ -1,0 +1,5 @@
+Topics
+A set of messages which contains a records of perticular category
+
+
+Each messages within partions has associated a uniq id known as offset
