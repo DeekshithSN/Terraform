@@ -1,0 +1,33 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:StartInstances",
+                "ec2:StopInstances"
+            ],
+            "Resource": "arn:aws:ec2:ap-south-1:256740756013:instance/instanceid"
+        },
+        {
+            "Sid": "",
+            "Effect": "Allow",
+            "Action": "ssm:StartSession",
+            "Resource": [
+                "arn:aws:ec2:ap-south-1:256740756013:instance/instanceid",
+                "arn:aws:ssm:::document/AWS-StartSSHSession"
+            ]
+        },
+        {
+            "Sid": "",
+            "Effect": "Allow",
+            "Action": [
+                "ssm:ResumeSession",
+                "ssm:TerminateSession",
+                "ssm:StartSession"
+            ],
+            "Resource": "arn:aws:ssm:::session/*"
+        }
+    ]
+}
